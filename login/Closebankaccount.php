@@ -1,3 +1,16 @@
+<?php session_start(); ?>
+<?php
+                    if(isset($_SESSION['status']))
+                    {
+                        ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>Hey!</strong> <?php echo $_SESSION['status']; ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        <?php
+                        unset($_SESSION['status']);
+                    }
+                ?>
 <html>
 
     <head>
@@ -47,7 +60,7 @@
             background-color: rgb(20, 27, 100);
             }
 
-    
+
 
         </style>
 
@@ -58,10 +71,9 @@
 		<div id="header" class=""></div>
 
         <div>
-            <form id="register" action="Statuspage.php">
-                <input type="text" id="transfer" name="transfer" placeholder="User for Checking: ">                
-                <input type="text" id="toAccount" name="toAccount" placeholder="Pass for Checking: ">
-                <input type="submit" value="Done">
+            <form id="register" action="Close.php" method="POST">
+                <input type="text" id="transfer" name="transfer" placeholder="Pin Number">
+                <input type="submit" name="account_delete_btn" value="Done">
             </form>
             </form>
         </div>
