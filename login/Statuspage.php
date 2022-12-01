@@ -30,7 +30,7 @@ session_start();
                 <input type="submit" value="View Balance">
             </form>
         </div>
-				<br>
+
         <div>
             <form id="button2" action="Transfer.php">
                 <input type="submit" value="Transfer Balance">
