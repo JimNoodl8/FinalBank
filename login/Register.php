@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 
 	include("Connection.php");
@@ -15,7 +15,7 @@ session_start();
 			$pin = random_num4(4);
 			$checkingroute = random_num16(16);
 			$savingsroute = random_num16(16);
-			$query = "insert into users (user_id,user_name,password,firstlastname,pin,checkingroute,savingsroute,email) values 
+			$query = "insert into users (user_id,user_name,password,firstlastname,pin,checkingroute,savingsroute,email) values
 			('$user_id','$user_name','$password','$firstlastname','$pin','$checkingroute','$savingsroute','$email')";
 
 			mysqli_query($con, $query);
@@ -23,7 +23,7 @@ session_start();
 			header("Location: Homepage.php");
 			die;
 		} else {
-			echo "<p id='regerror'>" . "<b>" . 
+			echo "<p id='regerror'>" . "<b>" .
 			"Please fill in the text fields." . "</b>" . "</p>";
 		}
 	}
@@ -41,35 +41,35 @@ session_start();
 
 	<style>
 #regerror {
-font-family: Helvetica; 
-color:rgb(255, 0, 0); 
-position: absolute; 
-top: 680px; 
+font-family: Helvetica;
+color:rgb(255, 0, 0);
+position: absolute;
+top: 680px;
 left: 750px;
 }
 
-#flname { 
-position: absolute; 
+#flname {
+position: absolute;
 top:395px;
 }
 
-#regemail { 
-position: absolute; 
+#regemail {
+position: absolute;
 top:455px;
 }
 
-#reguser { 
-position: absolute; 
+#reguser {
+position: absolute;
 top:515px;
 }
 
-#regpass { 
-position: absolute; 
+#regpass {
+position: absolute;
 top:575px;
 }
 
-#register { 
-top: 635px; 
+#register {
+top: 635px;
 left: 750px;
 }
 
@@ -86,7 +86,7 @@ z-index: -3;
 
 	</style>
 
-		<img id="background" src="Images/Background.png" alt="Background" class="background" width="1850" height="1040.625">
+		<img id="background" src="Images/Background.png" alt="Background" class="background" width="1850" height="1040.625" background-size: cover>
 		<img id="logomid" src="Images/Logo.png" alt="Icon" class="icon" width="326" height="179">
 		<div id="rectanglereg" class="round"></div>
 		<a href="Homepage.php"><img id="headericon" src="Images/Logo.png" alt="Icon" class="icon" width="127.486" height="70"></a>

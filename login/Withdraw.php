@@ -1,3 +1,36 @@
+<?php
+session_start();
+include("Connection.php");
+include("Functions.php");
+
+if(isset($_POST['done']))
+{
+    $money = $_POST['money'];
+    $ID = $_SESSION['user_id'];
+
+    $sql = "SELECT checkingbalance FROM users WHERE user_id = '$ID'";
+    $query_run = mysqli_query($con, $sql);
+    $result = mysqli_fetch_array($query_run);
+
+    $Amount = $result['checkingbalance'];
+
+    if($Amount > $money)
+    {
+        $sum = $Amount - $money;
+        $querys = "UPDATE users SET checkingbalance = '$sum' WHERE user_id ='$ID'";
+        $result = mysqli_query($con, $querys);
+        echo '<script>alert("Success")</script>';
+        header("Location: Balance.php");
+
+    }else
+    {
+        echo '<script>alert("Failed")</script>';
+        header("Location: Withdraw.php");
+    }
+}
+?>
+
+
 <html>
 
     <head>
@@ -66,10 +99,9 @@
 		<div id="header" class=""></div>
 
         <div>
-            <form id="register" action="Statuspage.php">
-                <input type="text" id="transfer" name="transfer" placeholder="Amount: $ ">                
-                <input type="text" id="toAccount" name="toAccount" placeholder="Insert Pin: # ">
-                <input type="submit" value="Done">
+            <form id="register" method = "POST" >
+                <input type="text" id="transfer" name="money" placeholder="Amount: $ ">
+                <input type="submit" name = 'done' value="Done">
             </form>
             </form>
         </div>
